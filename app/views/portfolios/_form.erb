@@ -1,0 +1,18 @@
+<%= form_with model: @portfolio do |uploadphoto| %>
+    <div>
+      <%= uploadphoto.label :name %>
+      <%= uploadphoto.text_field :name %>
+    </div>
+    <div> 
+        <%= uploadphoto.label :description, style: "display: block" %>
+        <%= uploadphoto.rich_text_area :description %>
+    </div>
+
+    <div>
+        <%= uploadphoto.label :images, style: "display: block" %>
+        <%= uploadphoto.file_field :images, multiple: true, accept: "image/*" %>
+    </div>
+    <div>
+      <%= uploadphoto.submit %>
+    </div>
+<% end %>

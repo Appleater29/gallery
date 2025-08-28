@@ -1,0 +1,12 @@
+<h1>All Galleries</h1>
+<p>A list of all the galleries available to view.</p>
+
+<%= link_to "New Gallery", new_portfolio_path if authenticated? %>
+
+<div id="portfolios">
+  <% @portfolios.each do |portfolio| %>
+    <div>
+    <%= link_to portfolio.name, portfolio %>
+    </div>
+  <% end %>
+</div>

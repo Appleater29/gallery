@@ -1,0 +1,19 @@
+<% cache @portfolio do %>
+    
+    <h1><%= @portfolio.name %></h1>
+    <%= @portfolio.description %>
+    <% end %>
+
+    <% if @portfolio.images.attached? %>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <% @portfolio.images.each do |image| %>
+            <%= image_tag image %>
+        <% end %>
+        </div>
+    <% end %>
+
+<%= link_to "Back", portfolios_path %>
+<% if authenticated? %>
+<%= link_to "Edit", edit_portfolio_path(@portfolio) %>
+<%= button_to "Delete", @portfolio, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<% end %>
