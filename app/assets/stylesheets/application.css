@@ -15,7 +15,7 @@
   }
 
   nav {
-    justify-content: flex-end;
+    justify-content: flex;
     display: flex;
     font-size: 0.875em;
     gap: 0.5rem;
@@ -33,30 +33,12 @@
     color: green;
   }
 
-  /* section.portfolio {
+  .navbar {
     display: flex;
-    gap: 1rem;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
-
-  section.portfolio img {
-    border-radius: 8px;
-    flex-basis: 50%;
-    max-width: 50%;
-  } */
-
-
-  .portfolio-images {
-    display: flex;
-    flex-wrap: wrap;       /* allows wrapping to the next row */
-    gap: 16px;             /* space between images */
-  }
-  
-  .portfolio-images img {
-    border-radius: 8px;    /* rounded corners */
-    flex-basis: calc(33.333% - 16px); /* roughly 3 images per row */
-    max-width: calc(33.333% - 16px);
-    height: auto;          /* keeps aspect ratio */
-    object-fit: cover;     /* crops nicely if you also set height */
+  .navbar .left a {
+    margin-right: 1rem;
   }
