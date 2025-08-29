@@ -6,10 +6,8 @@
 
     <% if @portfolio.images.attached? %>
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        <% @portfolio.thumbnail_images.each do |image| %>
-            <%= link_to url_for(image) do %>
-                <%= image_tag(image) %>
-            <% end %>
+        <% @portfolio.images.each do |image| %>
+            <%= link_to image_tag(@portfolio.image_as_thumbnail(image)), image %>
         <% end %>
         </div>
     <% end %>

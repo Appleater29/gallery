@@ -5,7 +5,10 @@ class Portfolio < ApplicationRecord
 
     def thumbnail_images
         images.map do |image|
-            image.variant(resize_to_limit: [300, 300])
+            image.variant(resize_to_limit: [300, 300]).processed
         end
+    end
+    def image_as_thumbnail(img)
+        img.variant(resize_to_limit: [200, 200]).processed
     end
 end
