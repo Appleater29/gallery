@@ -42,3 +42,20 @@
   .navbar .left a {
     margin-right: 1rem;
   }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* space between icon and text */
+  }
+  
+  .nav-icon-large {
+    width: 60px;
+    height: 60px;
+  }
+
+  .nav-icon-med {
+    width: 20px;
+    height: 20px;
+  }
+

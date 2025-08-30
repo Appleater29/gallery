@@ -9,6 +9,6 @@ class Portfolio < ApplicationRecord
         end
     end
     def image_as_thumbnail(img)
-        img.variant(resize_to_limit: [200, 200]).processed
+        img.variant(resize_to_limit: [400, 400]).processed
     end
 end

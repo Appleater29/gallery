@@ -25,7 +25,9 @@
   <body>
   <nav class="navbar">
     <div class="left">
-      <%= link_to "Home", root_path %>
+      <%= link_to root_path, class: "nav-link" do%>
+        <%= image_tag "svg/home.svg", class: "nav-icon-large" %>
+      <% end %>
     </div>
     <div class="right">
       <%= button_to "Log out", session_path, method: :delete if authenticated? %>

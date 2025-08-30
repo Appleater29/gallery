@@ -1,4 +1,7 @@
 <h1>Edit portfolio</h1>
 
 <%= render "form", portfolio:  @portfolio %>
-<%= link_to "Cancel",  @portfolio %>
+
+<%= link_to @portfolio, class: "nav-link" do %>
+    <%= image_tag "svg/cancel.svg", class: "nav-icon-med" %>
+<% end %>

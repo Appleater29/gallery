@@ -1,12 +1,37 @@
-<h1>All Galleries</h1>
-<p>A list of all the galleries available to view.</p>
-
-<%= link_to "New Gallery", new_portfolio_path if authenticated? %>
-
-<div id="portfolios">
-  <% @portfolios.each do |portfolio| %>
-    <div>
-    <%= link_to portfolio.name, portfolio %>
+<div class="space-y-4 p-4 mt-6 mb-6 bg-gray-50 border border-black rounded-lg">
+  <h1 class="text-4xl text-center font-bold">Galleries</h1>
+  <p class="text-center text-gray-500">A list of all the galleries available to view.</p>
+  <% if authenticated? %>
+    <div class="flex justify-center my-6">
+      <%= link_to new_portfolio_path, class: "bg-white hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center border border-black" do %>
+        <%= image_tag "svg/new_gallery.svg", class: "nav-icon-med mr-2" %>
+        <span>New Gallery</span>
+      <% end %>
     </div>
   <% end %>
+</div>
+
+<div class="space-y-4 p-4 mt-6 mb-6 bg-gray-50 border border-black rounded-lg">
+
+  <div class="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
+    <% @portfolios.each do |portfolio| %>
+      <%= link_to portfolio_path(portfolio), class: "block group" do %>
+        <div class="bg-white border border-black rounded-lg shadow-md flex flex-col md:flex-row w-full transform transition duration-200 hover:bg-gray-300 hover:shadow-lg hover:scale-[1.01]">
+
+          <div class="h-48 w-48 flex-none bg-cover bg-center rounded-lg"
+            style="background-image: url('<%= portfolio.images.attached? ? url_for(portfolio.images.first) : asset_path('svg/empty_gallery.svg') %>')">
+          </div>
+
+          <div class="border-t md:border-t-0 md:border-l border-gray-300"></div>
+
+          <div class="p-4 flex flex-col justify-between flex-grow">
+            <div>
+              <h2 class="text-lg font-bold text-gray-900"><%= portfolio.name %></h2>
+              <p class="text-gray-600 text-sm"><%= portfolio.description %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
