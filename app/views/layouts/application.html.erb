@@ -22,21 +22,23 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-  <nav class="navbar">
-    <div class="left">
-      <%= link_to root_path, class: "nav-link" do%>
-        <%= image_tag "svg/home.svg", class: "nav-icon-large" %>
-      <% end %>
+  <body class="bg-gradient-to-t from-blue-200  to-white">
+    <div>
+      <nav class="navbar border border-black rounded-lg bg-gray-50">
+        <div class="left">
+          <%= link_to root_path, class: "nav-link" do%>
+            <%= image_tag "svg/home.svg", class: "nav-icon-large" %>
+          <% end %>
+        </div>
+        <div class="right">
+          <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+          <%= link_to "Login", new_session_path unless authenticated? %>
+        </div>
+        </nav>
+        <div class="notice"><%= notice %></div>
+        <main>
+            <%= yield %>
+        </main>
     </div>
-    <div class="right">
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
-      <%= link_to "Login", new_session_path unless authenticated? %>
-    </div>
-    </nav>
-    <div class="notice"><%= notice %></div>
-    <main>
-        <%= yield %>
-    </main>
   </body>
 </html>
